@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", "M PLUS Rounded 1c", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+
+  --color-muse-pink: #FF69B4;
+  --color-muse-pink-light: #FFB6C1;
+  --color-muse-purple: #9370DB;
+  --color-muse-blue: #00BFFF;
+  --color-muse-yellow: #FFD700;
+  --color-muse-bg: #FFF0F5;
+
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-sparkle: sparkle 2s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-muse-bg text-gray-800 font-sans selection:bg-muse-pink/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-xl rounded-3xl p-6;
+  }
+
+  .stat-badge {
+    @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-muse-pink hover:bg-muse-pink/90 text-white rounded-2xl font-display font-bold shadow-lg transform active:scale-95 transition-all;
+  }
+
+  .progress-bar-container {
+    @apply w-full h-4 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-muse-pink transition-all duration-500 ease-out;
+  }
+}
+
