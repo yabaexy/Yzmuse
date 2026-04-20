@@ -16,7 +16,7 @@ export interface Mission {
   type: MissionType;
   title: string;
   description: string;
-  rewardYMP: number;
+  rewardWYDA: number;
   requirement: number;
   currentProgress: number;
   isCompleted: boolean;
@@ -35,8 +35,15 @@ export interface UserState {
   level: number;
   exp: number;
   stats: MuseStats;
-  ymp: number; // Currency
+  wydaBalance: string; 
+  walletAddress: string | null;
   ownedSkins: string[];
   activeSkinId: string;
   missions: Mission[];
+}
+
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
 }
